@@ -1,0 +1,72 @@
+
+
+test_12
+"[1, 2, 3]"
+
+""
+0
+1
+2
+
+
+test_6
+"{'books': [{'source': {'site': 'Google', 'author': {'has': 'attr'}}, 'score': 1, 'title': 'Book A'}, {'source': {'site': 'Amazon', 'author': {'also': 'hasthis', 'has': 'otherattr'}}, 'score': 2, 'title': 'Book B'}], 'videos': [{'source': {'video length': 3, 'site': 'Google', 'author': {'has': 'attr'}}, 'score': 5, 'title': 'Video A'}, {'source': {'verified': 'false', 'site': 'Youtube'}, 'score': 100, 'title': 'Video B'}]}"
+
+,source.author.has,title,source.author.also,source.verified,score,source.site,source.video length
+books,attr,Book A,,,1,Google,
+books,otherattr,Book B,hasthis,,2,Amazon,
+videos,attr,Video A,,,5,Google,3
+videos,,Video B,,false,100,Youtube,
+
+
+test_5
+"[{'a': 'a1', 'c': 'see', 'b': 'b1', 'd': [[1, 2], [3, 4]]}, {'a': 'a2', 'c': [1, 2, {'a': 1, 'b': 2}], 'b': 'b2'}]"
+
+,a,c,b,c.0,c.1,d.0.1,d.0.0,d.1.0,d.1.1,c.2.b,c.2.a
+0,a1,see,b1,,,2,1,3,4,,
+1,a2,,b2,1,2,,,,,2,1
+
+
+test_4
+"{'items': [{'score': 1, 'Data': [1, 2, 3], 'title': 'A'}, {'score': 2, 'Data': [4, 5, 6], 'title': 'B'}], 'metadata': 'KABLOOEY'}"
+
+,1.Data.2,1.Data.1,1.Data.0,1.title,0.title,0.Data.0,0.Data.1,0.Data.2,0.score,1.score
+items,,,,,A,1,2,3,1,
+items,6,5,4,B,,,,,,2
+metadata,,,,,,,,,,
+
+
+test_3
+"{'a': [1], 'c': [1, 2], 'b': [1, 2, 3]}"
+
+""
+a
+c
+c
+b
+b
+b
+
+
+test_2
+"{'a': [1, 2, 3], 'c': [1, 2, 3], 'b': [1, 2, 3]}"
+
+""
+a
+a
+a
+c
+c
+c
+b
+b
+b
+
+
+test_1
+"{'a': 1, 'c': 3, 'b': 2}"
+
+,a,c,b
+a,1,,
+c,,3,
+b,,,2
